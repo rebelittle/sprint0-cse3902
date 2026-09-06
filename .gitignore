@@ -1,0 +1,18 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+/Submission/
+/.vscode/
+/sprint0-isometric-plan.md
+
+# Keep unused cursor-pack variants out of the repository.
+/Assets/cursors/*
+!/Assets/cursors/README.txt
+!/Assets/cursors/light/
+/Assets/cursors/light/*
+!/Assets/cursors/light/busy.png
+
+# Tiny Blocks permits game use but forbids redistribution as assets.
+/Assets/TiynBlocks_1.1/*.png

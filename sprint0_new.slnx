@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="sprint0_new.csproj" />
+  <Project Path="Builder/ContentBuilder.csproj" />
+</Solution>

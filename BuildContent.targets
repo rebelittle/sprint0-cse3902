@@ -1,0 +1,13 @@
+<Project>
+  <Target Name="BuildContent" BeforeTargets="CoreCompile" DependsOnTargets="ResolveProjectReferences"
+          Condition="'$(DesignTimeBuild)' != 'true'">
+    <PropertyGroup>
+      <ContentBuilderPath>$(MSBuildThisFileDirectory)Builder\bin\$(Configuration)\net9.0\ContentBuilder.dll</ContentBuilderPath>
+      <!-- MSBuild path helpers also work in Visual Studio's .NET Framework host. -->
+      <ContentOutput>$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '$(OutDir)').TrimEnd('\/'))</ContentOutput>
+      <ContentTemp>$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '$(IntermediateOutputPath)').TrimEnd('\/'))</ContentTemp>
+    </PropertyGroup>
+    <Exec Command="dotnet &quot;$(ContentBuilderPath)&quot; build -p $(MonoGamePlatform) -s &quot;$(MSBuildProjectDirectory)\Assets&quot; -o &quot;$(ContentOutput)&quot; -i &quot;$(ContentTemp)&quot;"
+          WorkingDirectory="$(MSBuildProjectDirectory)" />
+  </Target>
+</Project>

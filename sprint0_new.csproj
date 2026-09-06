@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <MonoGamePlatform>DesktopGL</MonoGamePlatform>
+    <DefaultItemExcludes>$(DefaultItemExcludes);Submission/**</DefaultItemExcludes>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.5.1" />
+    <ProjectReference Include="Builder\ContentBuilder.csproj" ReferenceOutputAssembly="false" />
+    <Compile Remove="Assets\**\*.cs;Builder\**\*.cs" />
+  </ItemGroup>
+  <Import Project="BuildContent.targets" />
+</Project>
